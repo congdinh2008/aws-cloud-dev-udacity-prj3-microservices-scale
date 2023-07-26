@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - 16
+
+services:
+  - docker
+
+env:
+  global:
+    - UDAGRAM_API_FEED_IMAGE_NAME=udagram-api-feed
+    - UDAGRAM_API_USER_IMAGE_NAME=udagram-api-user
+    - UDAGRAM_FRONTEND_IMAGE_NAME=udagram-frontend
+    - UDAGRAM_REVERSEPROXY_IMAGE_NAME=udagram-reverseproxy
+    - TAG=v1
+
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - docker build -t $DOCKER_USERNAME/$UDAGRAM_API_FEED_IMAGE_NAME:$TAG ./$UDAGRAM_API_FEED_IMAGE_NAME
+  - docker push $DOCKER_USERNAME/$UDAGRAM_API_FEED_IMAGE_NAME:$TAG
+
+  - docker build -t $DOCKER_USERNAME/$UDAGRAM_API_USER_IMAGE_NAME:$TAG ./$UDAGRAM_API_USER_IMAGE_NAME
+  - docker push $DOCKER_USERNAME/$UDAGRAM_API_USER_IMAGE_NAME:$TAG
+
+  - docker build -t $DOCKER_USERNAME/$UDAGRAM_FRONTEND_IMAGE_NAME:$TAG ./$UDAGRAM_FRONTEND_IMAGE_NAME
+  - docker push $DOCKER_USERNAME/$UDAGRAM_FRONTEND_IMAGE_NAME:$TAG
+
+  - docker build -t $DOCKER_USERNAME/$UDAGRAM_REVERSEPROXY_IMAGE_NAME:$TAG ./UDAGRAM_REVERSEPROXY_IMAGE_NAME
+  - docker push $DOCKER_USERNAME/$UDAGRAM_REVERSEPROXY_IMAGE_NAME:$TAG

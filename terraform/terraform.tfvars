@@ -1,0 +1,7 @@
+region                = "us-east-1"
+bucket_name           = "aws-dev-udacity-prj3"
+ss3_access_point_name = "udagram"
+db_identifier         = "aws-dev-udacity-prj3"
+postgres_username     = "udacity"
+postgres_password     = "Abcd^1234"
+postgres_db           = "udacityprj3"

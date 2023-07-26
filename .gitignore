@@ -1,1 +1,7 @@
 .DS_Store
+set_env.sh
+terraform/.terraform/**
+terraform/.terraform.lock.hcl
+terraform/solution.plan
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup

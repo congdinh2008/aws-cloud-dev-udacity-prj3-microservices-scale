@@ -12,7 +12,7 @@ env:
     - UDAGRAM_FRONTEND_IMAGE_NAME=udagram-frontend
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=reverseproxy
     - UDAGRAM_REVERSEPROXY_FOLDER_PATH=udagram-reverseproxy
-    - TAG=latest
+    - TAG=v2
 
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

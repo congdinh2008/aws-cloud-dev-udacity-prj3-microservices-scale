@@ -5,3 +5,4 @@ terraform/.terraform.lock.hcl
 terraform/solution.plan
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+.kube/**

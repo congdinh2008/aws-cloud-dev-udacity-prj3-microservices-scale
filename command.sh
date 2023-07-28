@@ -1,3 +1,4 @@
+
 aws configure
 aws configure set aws_session_token
 
@@ -8,6 +9,8 @@ docker image prune --all
 docker-compose up
 docker-compose up
 
+# To create your kubeconfig file with the AWS CLI
+aws eks update-kubeconfig --region us-east-1 --name udacity-prj3-eks
 
 # Variables
 kubectl apply -f aws-secret.yaml                                                           
@@ -23,11 +26,14 @@ kubectl apply -f backend-user-deployment.yaml
 kubectl logs -p backend-feed-545b8757d6-pmtnj
 kubectl delete pod reverseproxy-794bc8dc7c-r8nv2
 kubectl delete deployment reverseproxy
+kubectl delete pods --all -A
+kubectl delete deployments --all -A
 
 # Checking
 kubectl get deployments 
 kubectl get services
-kubectl get pods  
+kubectl get svc
+kubectl get pods
 
 kubectl expose deployment udagram-frontend --type=LoadBalancer --name=publicfrontend
 kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy  

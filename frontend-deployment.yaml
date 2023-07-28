@@ -13,11 +13,14 @@ spec:
     metadata:
       labels:
         app: udagram-frontend
+        api: external
     spec:
       containers:
         - image: congdinh2012/udagram-frontend
           name: udagram-frontend
           imagePullPolicy: Always
+          ports:
+            - containerPort: 80
           resources:
             requests:
               memory: "100Mi"
@@ -25,5 +28,4 @@ spec:
             limits:
               memory: "200Mi"
               cpu: "500m"
-          ports:
-            - containerPort: 8080
+      restartPolicy: Always

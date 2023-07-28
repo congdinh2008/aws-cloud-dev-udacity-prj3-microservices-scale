@@ -52,4 +52,32 @@ kubectl set image deployment backend-feed backend-feed=congdinh2012/udagram-api-
 kubectl set image deployment reverseproxy reverseproxy=congdinh2012/reverseproxy:latest 
 kubectl set image deployment udagram-frontend udagram-frontend=congdinh2012/udagram-frontend:latest
 
+kubectl autoscale deployment backend-feed --cpu-percent=50 --min=1 --max=2
+kubectl autoscale deployment backend-user --cpu-percent=50 --min=1 --max=2
+kubectl autoscale deployment udagram-frontend --cpu-percent=50 --min=1 --max=2
 
+kubectl describe pod [pod-name]
+
+kubectl get pods
+kubectl logs [pod-name] -p
+## Once you increase the memory, check the updated deployment as:
+kubectl get pod [pod-name] --output=yaml
+## You can autoscale, if required, as
+kubectl autoscale deployment backend-user --cpu-percent=70 --min=3 --max=5
+
+kubectl get pods
+## Assuming "backend-feed-68d5c9fdd6-dkg8c" is a pod
+kubectl exec --stdin --tty backend-feed-68d5c9fdd6-dkg8c -- /bin/bash
+## See what values are set for environment variables in the container
+printenv | grep POST
+## Or, you can try "curl <cluster-IP-of-backend>:8080/api/v0/feed " to check if services are running.
+## This is helpful to see is backend is working by opening a bash into the frontend container
+
+printenv | grep POST
+
+## Kubernetes pods are deployed properly
+kubectl get pods 
+## Kubernetes services are set up properly
+kubectl describe services
+## You have horizontal scaling set against CPU usage
+kubectl describe hpa

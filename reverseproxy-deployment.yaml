@@ -25,5 +25,12 @@ spec:
             limits:
               memory: "2000Mi"
               cpu: "500m"
+          envFrom:
+            - secretRef:
+                name: env-secret
+            - configMapRef:
+                name: env-configmap
+            - secretRef:
+                name: aws-secret
           ports:
             - containerPort: 8080

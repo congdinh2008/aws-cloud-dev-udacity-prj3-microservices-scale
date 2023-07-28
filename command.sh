@@ -14,8 +14,13 @@ kubectl apply -f aws-secret.yaml
 kubectl apply -f env-secret.yaml
 kubectl apply -f env-configmap.yaml
 
+kubectl apply -f reverseproxy-deployment.yaml 
+kubectl apply -f frontend-deployment.yaml 
+kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-user-deployment.yaml
+
 # Logging
-kubectl logs backend-feed-545b8757d6-pmtnj -p
+kubectl logs -p backend-feed-545b8757d6-pmtnj
 kubectl delete pod reverseproxy-794bc8dc7c-r8nv2
 kubectl delete deployment reverseproxy
 
@@ -38,6 +43,3 @@ kubectl set image deployment reverseproxy reverseproxy=congdinh2012/reverseproxy
 kubectl set image deployment udagram-frontend udagram-frontend=congdinh2012/udagram-frontend:latest
 
 
-kubectl apply -f reverseproxy-deployment.yaml 
-kubectl apply -f backend-feed-deployment.yaml
-kubectl apply -f backend-user-deployment.yaml

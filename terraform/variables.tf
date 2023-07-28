@@ -32,3 +32,33 @@ variable "postgres_db" {
   type    = string
   default = "udacity-prj3"
 }
+
+variable "rds_security_group" {
+  type    = string
+  default = "udacity-prj3-rds-security-group"
+}
+
+variable "eks_cluster_role" {
+  type    = string
+  default = "udacity-prj3-eks-role"
+}
+
+variable "eks_security_group" {
+  type    = string
+  default = "udacity-prj3-eks-security-group"
+}
+
+variable "eks_cluster_name" {
+  type    = string
+  default = "udacity-prj3-eks"
+}
+
+variable "eks_worker_node_role" {
+  type    = string
+  default = "udacity-prj3-eks-worker-node-role"
+}
+
+variable "eks_worker_node" {
+  type    = string
+  default = "udacity-prj3-eks-worker-node"
+}

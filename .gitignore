@@ -7,3 +7,6 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .kube/**
 terraform/.terraform.tfstate.lock.info
+deployments/k8s/aws-secret.yaml
+deployments/k8s/env-configmap.yaml
+deployments/k8s/env-secret.yaml

@@ -8,5 +8,6 @@ spec:
   ports:
     - port: 8100
       protocol: TCP
+      targetPort: 80
   selector:
     run: udagram-frontend

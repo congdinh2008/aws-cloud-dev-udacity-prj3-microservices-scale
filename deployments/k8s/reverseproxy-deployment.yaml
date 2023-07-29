@@ -5,7 +5,7 @@ metadata:
     app: reverseproxy
   name: reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: reverseproxy
@@ -15,7 +15,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-        - image: congdinh2012/reverseproxy
+        - image: congdinh2012/udagram-reverseproxy
           name: reverseproxy
           imagePullPolicy: Always
           resources:

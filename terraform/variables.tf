@@ -5,7 +5,7 @@ variable "region" {
 
 variable "bucket_name" {
   type    = string
-  default = "aws-dev-udacity-prj3"
+  default = "congdinh-udacity-prj3"
 }
 
 variable "s3_access_point_name" {

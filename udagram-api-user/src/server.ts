@@ -28,7 +28,7 @@ import { V0_USER_MODELS } from "./controllers/v0/model.index";
         "Origin",
         "X-Requested-With",
         "Content-Type",
-        "Accept", 'Access-Control-Allow-Origin',
+        "Accept",
         "X-Access-Token",
         "Authorization",
       ],

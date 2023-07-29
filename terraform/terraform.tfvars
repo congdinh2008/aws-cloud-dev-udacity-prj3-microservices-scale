@@ -1,5 +1,5 @@
 region                = "us-east-1"
-bucket_name           = "aws-dev-udacity-prj3"
+bucket_name           = "congdinh-udacity-prj3"
 s3_access_point_name = "udagram"
 db_identifier         = "aws-dev-udacity-prj3"
 postgres_username     = "udacity"

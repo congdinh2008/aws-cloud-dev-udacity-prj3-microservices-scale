@@ -74,7 +74,7 @@ kubectl autoscale deployment backend-user --cpu-percent=70 --min=3 --max=5
 
 kubectl get pods
 ## Assuming "backend-feed-68d5c9fdd6-dkg8c" is a pod
-kubectl exec --stdin --tty backend-feed-68d5c9fdd6-dkg8c -- /bin/bash
+kubectl exec --stdin --tty podname -- /bin/bash
 ## See what values are set for environment variables in the container
 printenv | grep POST
 ## Or, you can try "curl <cluster-IP-of-backend>:8080/api/v0/feed " to check if services are running.

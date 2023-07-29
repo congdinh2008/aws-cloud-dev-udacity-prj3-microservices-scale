@@ -7,22 +7,18 @@ services:
 
 env:
   global:
-    - DOCKER_COMPOSE_VERSION=2.20.2
     - UDAGRAM_API_FEED_IMAGE_NAME=udagram-api-feed
     - UDAGRAM_API_USER_IMAGE_NAME=udagram-api-user
     - UDAGRAM_FRONTEND_IMAGE_NAME=udagram-frontend
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=udagram-reverseproxy
-    - TAG=v5
-
-install:
-  - docker -v && docker-compose -v
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+    - TAG=latest
 
 script:
-  - docker-compose -f deployments/docker/docker-compose-build.yaml build --parallel 
+  - docker-compose -f deployments/docker/docker-compose-build.yaml build --parallel
+  - docker tag $UDAGRAM_API_FEED_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_API_FEED_IMAGE_NAME:$TAG
+  - docker tag $UDAGRAM_API_USER_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_API_USER_IMAGE_NAME:$TAG
+  - docker tag $UDAGRAM_FRONTEND_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_FRONTEND_IMAGE_NAME:$TAG
+  - docker tag $UDAGRAM_REVERSEPROXY_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_REVERSEPROXY_IMAGE_NAME:$TAG
 
 after_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

@@ -28,7 +28,7 @@ import { V0_FEED_MODELS } from "./controllers/v0/model.index";
         "Origin",
         "X-Requested-With",
         "Content-Type",
-        "Accept",
+        "Accept", 'Access-Control-Allow-Origin',
         "X-Access-Token",
         "Authorization",
       ],

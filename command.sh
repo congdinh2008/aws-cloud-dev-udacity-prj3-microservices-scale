@@ -44,6 +44,7 @@ kubectl get deployments
 kubectl get services
 kubectl get svc
 kubectl get pods
+kubectl get endpoints    
 
 kubectl expose deployment udagram-frontend --type=LoadBalancer --name=publicfrontend
 kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy  

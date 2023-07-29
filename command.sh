@@ -2,7 +2,7 @@
 aws configure
 aws configure set aws_session_token
 
-source set_env.sh
+source ../set_env.sh
 docker-compose -f docker-compose-build.yaml build --parallel
 docker-compose down
 docker image prune --all  
@@ -11,6 +11,12 @@ docker-compose up
 
 # To create your kubeconfig file with the AWS CLI
 aws eks update-kubeconfig --region us-east-1 --name udacity-prj3-eks
+
+## Use a combination of head/tail command to identify lines you want to convert to base64
+## You just need two correct lines: a right pair of aws_access_key_id and aws_secret_access_key
+cat ~/.aws/credentials | tail -n 5 | head -n 2
+## Convert 
+cat ~/.aws/credentials | tail -n 5 | head -n 2 | base64
 
 # Variables
 kubectl apply -f aws-secret.yaml                                                           

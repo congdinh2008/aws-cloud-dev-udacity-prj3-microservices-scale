@@ -6,3 +6,4 @@ terraform/solution.plan
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .kube/**
+terraform/.terraform.tfstate.lock.info

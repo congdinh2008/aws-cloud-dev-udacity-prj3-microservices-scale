@@ -22,7 +22,7 @@ before_script:
   - sudo mv docker-compose /usr/local/bin
 
 install:
-  - docker-compose -f deployments/docker/docker-compose-build.yml build --parallel 
+  - docker-compose -f deployments/docker/docker-compose-build.yaml build --parallel 
 
 after_sucess:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

@@ -2,7 +2,7 @@ export const config = {
   username: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  host: "aws-dev-udacity-prj3.cbgqtued4vut.us-east-1.rds.amazonaws.com", //process.env.POSTGRES_HOST,
+  host: process.env.POSTGRES_HOST,
   dialect: "postgres",
   aws_region: process.env.AWS_REGION,
   aws_profile: process.env.AWS_PROFILE,

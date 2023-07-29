@@ -5,7 +5,7 @@ variable "region" {
 
 variable "bucket_name" {
   type    = string
-  default = "congdinh-udacity-prj3"
+  default = "aws-dev-udacity-prj3"
 }
 
 variable "s3_access_point_name" {
@@ -31,11 +31,6 @@ variable "postgres_password" {
 variable "postgres_db" {
   type    = string
   default = "udacity-prj3"
-}
-
-variable "rds_security_group" {
-  type    = string
-  default = "udacity-prj3-rds-security-group"
 }
 
 variable "eks_cluster_role" {

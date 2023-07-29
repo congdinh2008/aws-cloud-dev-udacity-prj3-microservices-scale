@@ -15,7 +15,7 @@ data "aws_availability_zones" "available" {}
 
 # Create aws security group for RDS
 resource "aws_security_group" "default" {
-  name = var.rds_security_group
+  name_prefix = "default-"
 }
 
 resource "aws_security_group_rule" "ingress_postgres" {
@@ -51,6 +51,7 @@ resource "aws_s3_bucket_cors_configuration" "example" {
     allowed_methods = ["GET", "PUT", "POST", "DELETE", "HEAD"]
     allowed_origins = ["*"]
     expose_headers  = []
+    max_age_seconds = 3000
   }
 }
 

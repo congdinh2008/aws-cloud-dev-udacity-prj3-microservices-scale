@@ -65,14 +65,12 @@ kubectl autoscale deployment udagram-frontend --cpu-percent=50 --min=1 --max=2
 
 kubectl describe pod [pod-name]
 
-kubectl get pods
-kubectl logs [pod-name] -p
+kubectl logs -p [pod-name]
 ## Once you increase the memory, check the updated deployment as:
 kubectl get pod [pod-name] --output=yaml
 ## You can autoscale, if required, as
 kubectl autoscale deployment backend-user --cpu-percent=70 --min=3 --max=5
 
-kubectl get pods
 ## Assuming "backend-feed-68d5c9fdd6-dkg8c" is a pod
 kubectl exec --stdin --tty podname -- /bin/bash
 ## See what values are set for environment variables in the container
@@ -88,3 +86,8 @@ kubectl get pods
 kubectl describe services
 ## You have horizontal scaling set against CPU usage
 kubectl describe hpa
+
+kubectl delete pods -l app=backend-feed
+kubectl delete pods -l app=backend-user
+kubectl delete pods -l app=reverseproxy
+kubectl delete pods -l app=udagram-frontend

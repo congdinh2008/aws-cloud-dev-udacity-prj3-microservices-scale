@@ -10,3 +10,4 @@ terraform/.terraform.tfstate.lock.info
 deployments/k8s/aws-secret.yaml
 deployments/k8s/env-configmap.yaml
 deployments/k8s/env-secret.yaml
+command.sh

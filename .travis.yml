@@ -11,7 +11,7 @@ env:
     - UDAGRAM_API_USER_IMAGE_NAME=udagram-api-user
     - UDAGRAM_FRONTEND_IMAGE_NAME=udagram-frontend
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=udagram-reverseproxy
-    - TAG=v2
+    - TAG=v3
 
 script:
   - docker-compose -f deployments/docker/docker-compose-build.yaml build --parallel

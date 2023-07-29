@@ -54,10 +54,10 @@ kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreversep
 base64 <<< testing
 
 # Redeploy 
-kubectl set image deployment backend-user backend-user=congdinh2012/udagram-api-user:v5
-kubectl set image deployment backend-feed backend-feed=congdinh2012/udagram-api-feed:v5
-kubectl set image deployment reverseproxy reverseproxy=congdinh2012/reverseproxy:v5
-kubectl set image deployment udagram-frontend udagram-frontend=congdinh2012/udagram-frontend:v5
+kubectl set image deployment backend-user backend-user=congdinh2012/udagram-api-user:latest
+kubectl set image deployment backend-feed backend-feed=congdinh2012/udagram-api-feed:latest
+kubectl set image deployment reverseproxy reverseproxy=congdinh2012/reverseproxy:latest
+kubectl set image deployment udagram-frontend udagram-frontend=congdinh2012/udagram-frontend:latest
 
 kubectl autoscale deployment backend-feed --cpu-percent=50 --min=1 --max=2
 kubectl autoscale deployment backend-user --cpu-percent=50 --min=1 --max=2

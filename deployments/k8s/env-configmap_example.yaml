@@ -6,7 +6,7 @@ data:
   AWS_REGION: your_region
   POSTGRES_DB: your_postgres_db
   POSTGRES_HOST: your_postgres_host
-  URL: http://abd456d9f363746e6b0d261484d7b76a-1881447566.us-east-1.elb.amazonaws.com
+  URL: http://a9ef139482fd8494a88c66c6275d101b-1044617686.us-east-1.elb.amazonaws.com
 metadata:
   name: env-config
   
